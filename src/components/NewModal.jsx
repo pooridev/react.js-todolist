@@ -3,82 +3,86 @@ import React from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 const NewModal = props => {
-	// props
-	const {
-		modalType,
-		onHide,
-		show,
-		editTaskHandler,
-		newTaskHandler,
-		deleteTask,
-		inputValue,
-		setInputValue,
-		taskIndex
-	} = props;
+  // props
+  const {
+    modalType,
+    onHide,
+    show,
+    editTaskHandler,
+    newTaskHandler,
+    deleteTask,
+    inputValue,
+    setInputValue,
+    taskIndex
+  } = props;
 
-	// modal title
-	let modalTitle;
-	modalType === 'add'
-		? (modalTitle = 'Add New Task')
-		: modalType === 'edit'
-		? (modalTitle = 'Edit Task')
-		: (modalTitle = 'Delete Task');
+  // Modal elements
+  let modalDecription;
+  let modalTitle;
+  let buttonText;
+  let buttonMethod;
 
-	// modal subtitle
-	let modalMessage;
-	modalType === 'edit'
-		? (modalMessage = 'Edit Me')
-		: modalType === 'add'
-		? (modalMessage = 'Gimme a task')
-		: (modalMessage = 'You wanna kill me ?😨');
-	// modal button text
-	let buttonText;
-	modalType === 'add'
-		? (buttonText = 'add')
-		: modalType === 'edit'
-		? (buttonText = 'edit')
-		: (buttonText = 'Delete');
+  switch (modalType) {
+    case 'add':
+      modalTitle = 'Add New Task';
+      modalDecription = 'Gimme a task';
+      buttonText = 'add';
+      buttonMethod = newTaskHandler;
+      break;
+    case 'edit':
+      modalTitle = 'Edit Task';
+      modalDecription = 'Edit Me';
+      buttonText = 'edit';
+      buttonMethod = buttonMethod = () =>
+        editTaskHandler(taskIndex, inputValue);
+      break;
+    case 'delete':
+      modalTitle = 'Delete Task';
+      modalDecription = 'You wanna kill me ?😨';
+      buttonText = 'delete';
+      buttonMethod = buttonMethod = () => deleteTask(taskIndex);
+      break;
+    default:
+      throw new Error('Should not reach here');
+  }
 
-	// confirm button event
-	let buttonMethod;
-	modalType === 'add'
-		? (buttonMethod = newTaskHandler)
-		: modalType === 'edit'
-		? (buttonMethod = () => editTaskHandler(taskIndex, inputValue))
-		: (buttonMethod = () => deleteTask(taskIndex));
+  let modalInput = (
+    <input
+      type='text'
+      className='form-control'
+      onChange={e => setInputValue(e.target.value)}
+    />
+  );
 
-	return (
-		<>
-			<Modal show={show} animation={true} onHide={onHide}>
-				<Modal.Header closeButton>
-					<Modal.Title>{modalTitle}</Modal.Title>
-				</Modal.Header>
-				<Modal.Body>
-					{modalMessage}
-					{modalType === 'add' ? (
-						<input
-							type='text'
-							className='form-control'
-							onChange={e => setInputValue(e.target.value)}
-						/>
-					) : modalType === 'edit' ? (
-						<input
-							type='text'
-							className='form-control'
-							onChange={e => setInputValue(e.target.value)}
-						/>
-					) : null}
-				</Modal.Body>
-				<Modal.Footer>
-					<Button variant='secondary' onClick={onHide}>
-						Close
-					</Button>
-					<Button variant='primary' onClick={buttonMethod}>
-						{buttonText}
-					</Button>
-				</Modal.Footer>
-			</Modal>
-		</>
-	);
+  if (modalType === 'edit') {
+    modalInput = (
+      <input
+        type='text'
+        className='form-control'
+        onChange={e => setInputValue(e.target.value)}
+      />
+    );
+  }
+  return (
+    <>
+      <Modal show={show} animation={true} onHide={onHide}>
+        <Modal.Header closeButton>
+          <Modal.Title>{modalTitle}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {modalDecription}
+          {modalInput}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={onHide}>
+            Close
+          </Button>
+          <Button variant='primary' onClick={buttonMethod}>
+            {buttonText}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 };
 export default NewModal;

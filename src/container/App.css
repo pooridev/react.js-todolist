@@ -11,25 +11,28 @@ body {
   padding: 0;
   margin: 0;
 }
+
 button {
   outline: none !important;
 }
-.to-do__header{
+
+.to-do__header {
   text-align: center;
   color: #ffffff;
   background-color: #3b9aff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
- 
 }
-.to-do__header h2{
+
+.to-do__header h2 {
   text-shadow: 0px 0px 2px #3c3c3c;
 }
+
 .modal-body {
   text-align: left !important;
-  
 }
-.to-do__body{
+
+.to-do__body {
   background-color: #ffffff;
   overflow-y: visible;
   height: 200px;
@@ -37,6 +40,7 @@ button {
   border-bottom-right-radius: 5px;
   overflow-y: scroll;
 }
+
 .to-do__body::-webkit-scrollbar {
   -webkit-appearance: none;
 }
@@ -52,13 +56,14 @@ button {
 .to-do__body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   border: 2px solid white;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.to-do__body::-webkit-scrollbar-track { 
-  background-color: #fff; 
-  border-radius: 8px; 
-} 
+.to-do__body::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
 li {
   color: #4a4a4b;
   list-style: none;
@@ -68,14 +73,16 @@ li {
   z-index: 100000;
 }
 
-li:hover .edit-task ,
-li:hover .delete-task{
+li:hover .edit-task,
+li:hover .delete-task {
   opacity: 1;
 }
-.taskText{
+
+.taskText {
   cursor: pointer;
 }
-.newTaskModalTrigger{
+
+.newTaskModalTrigger {
   position: relative;
   bottom: 1.8rem;
   width: 65px;
@@ -86,41 +93,47 @@ li:hover .delete-task{
   border-radius: 50%;
   border: 0;
 }
+
 .newTaskModalTrigger svg {
   fill: #3b9aff;
   margin: auto auto;
 }
-.edit-task{
+
+.edit-task {
   opacity: 0;
-  transition: all 0.3s ;
+  transition: all 0.3s;
   cursor: pointer;
 }
-.edit-task i ,
+
+.edit-task i,
 .delete-task i {
   color: #3c3c3c;
   font-size: 1.4rem;
 }
-.completed{
-  text-decoration: line-through;
-}
-.delete-task{
+
+.delete-task {
   cursor: pointer;
   opacity: 0;
-  transition: all 0.3s ;
+  transition: all 0.3s;
 }
-.newTaskModalTrigger:focus{
+
+.newTaskModalTrigger:focus {
   outline: none;
 }
-@media only screen and (max-width: 991px){
-  .edit-task , .delete-task {
-      opacity: 1;
+
+@media only screen and (max-width: 991px) {
+  .edit-task,
+  .delete-task {
+    opacity: 1;
   }
 }
-@media only screen and (max-width:991px) {
+
+@media only screen and (max-width: 991px) {
   .to-do-header h2 {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 }
+
 .git-hub__cta {
   width: 80px;
   height: 80px;
@@ -138,9 +151,11 @@ li:hover .delete-task{
   font-size: 5rem;
   text-decoration: none !important;
 }
+
 .git-hub__cta:hover {
   transform: scale(1.1);
 }
+
 .git-hub__cta i {
   color: #2d2d2d;
 }

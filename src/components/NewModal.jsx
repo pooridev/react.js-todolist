@@ -71,25 +71,23 @@ const NewModal = props => {
   }
 
   return (
-    <>
-      <Modal show={show} animation={true} onHide={onHide}>
-        <Modal.Header closeButton>
-          <Modal.Title>{modalTitle}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {modalDecription}
-          {modalInput}
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant='secondary' onClick={onHide}>
-            Close
-          </Button>
-          <Button variant='primary' onClick={buttonMethod}>
-            {buttonText}
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </>
+    <Modal show={show} animation={true} onHide={onHide}>
+      <Modal.Header closeButton>
+        <Modal.Title>{modalTitle}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        {modalDecription}
+        {modalInput}
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant='secondary' onClick={onHide}>
+          Close
+        </Button>
+        <Button variant='primary' onClick={buttonMethod}>
+          {buttonText}
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 export default NewModal;

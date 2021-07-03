@@ -46,23 +46,30 @@ const NewModal = props => {
       throw new Error('Should not reach here');
   }
 
-  let modalInput = (
-    <input
-      type='text'
-      className='form-control'
-      onChange={e => setInputValue(e.target.value)}
-    />
-  );
-
-  if (modalType === 'edit') {
-    modalInput = (
-      <input
-        type='text'
-        className='form-control'
-        onChange={e => setInputValue(e.target.value)}
-      />
-    );
+  // modal input
+  let modalInput = null;
+  switch (modalType) {
+    case 'edit':
+      modalInput = (
+        <input
+          type='text'
+          className='form-control'
+          onChange={e => setInputValue(e.target.value)}
+        />
+      );
+      break;
+    case 'add':
+      modalInput = (
+        <input
+          type='text'
+          className='form-control'
+          onChange={e => setInputValue(e.target.value)}
+        />
+      );
+      break;
+    default:
   }
+
   return (
     <>
       <Modal show={show} animation={true} onHide={onHide}>

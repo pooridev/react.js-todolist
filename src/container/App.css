@@ -22,14 +22,9 @@ button {
   background-color: #3b9aff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-}
-
-.to-do__header h2 {
-  text-shadow: 0px 0px 2px #3c3c3c;
-}
-
-.modal-body {
-  text-align: left !important;
+  max-width: 23rem;
+  margin: auto;
+  padding: 0.9rem;
 }
 
 .to-do__body {
@@ -39,6 +34,20 @@ button {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   overflow-y: scroll;
+  max-width: 23rem;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 1000px) {
+  .to-do__body,
+  .to-do__header {
+    max-width: 30rem;
+  }
+}
+
+.modal-body {
+  text-align: left !important;
 }
 
 .to-do__body::-webkit-scrollbar {
@@ -78,59 +87,43 @@ li:hover .delete-task {
   opacity: 1;
 }
 
-.taskText {
-  cursor: pointer;
-}
-
 .newTaskModalTrigger {
   position: relative;
-  bottom: 1.8rem;
+  bottom: 3rem;
   width: 65px;
   height: 65px;
-  font-size: 1.5rem;
+  font-size: 3.7rem;
   background-color: #ffffff;
   box-shadow: 0px 0px 6px #dadada;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   border: 0;
+  margin: auto;
 }
 
-.newTaskModalTrigger svg {
-  fill: #3b9aff;
-  margin: auto auto;
+.newTaskModalTrigger i {
+  color: #3b9aff;
 }
 
-.edit-task {
-  opacity: 0;
+.edit-task,
+.delete-task {
+  opacity: 1;
   transition: all 0.3s;
   cursor: pointer;
-}
-
-.edit-task i,
-.delete-task i {
   color: #3c3c3c;
   font-size: 1.4rem;
-}
-
-.delete-task {
-  cursor: pointer;
-  opacity: 0;
-  transition: all 0.3s;
 }
 
 .newTaskModalTrigger:focus {
   outline: none;
 }
 
-@media only screen and (max-width: 991px) {
+@media (min-width: 991px) {
   .edit-task,
   .delete-task {
-    opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .to-do-header h2 {
-    font-size: 1.6rem;
+    opacity: 0;
   }
 }
 

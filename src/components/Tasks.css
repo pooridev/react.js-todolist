@@ -5,3 +5,7 @@
 .task {
   cursor: pointer;
 }
+
+.list {
+  margin: 1rem auto;
+}

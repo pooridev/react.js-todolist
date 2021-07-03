@@ -68,7 +68,7 @@ const Tasks = props => {
 
   return (
     <>
-      <ul className='list text-center py-3'>
+      <ul className='list'>
         {tasks.map((task, index) => (
           <li
             key={task.id}

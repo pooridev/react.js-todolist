@@ -1,18 +1,20 @@
+import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import { TaskContext } from '../../Providers/Task';
 
 const NewModal = props => {
   // props
+  const { modalType, onHide, show } = props;
+
+  // context
   const {
-    modalType,
-    onHide,
-    show,
-    editTaskHandler,
-    newTaskHandler,
-    deleteTask,
-    inputValue,
     setInputValue,
-    taskIndex
-  } = props;
+    inputValue,
+    taskIndex,
+    deleteTaskHandler,
+    handleNewTask,
+    editTaskHandler
+  } = useContext(TaskContext);
 
   // Modal elements
   let modalDecription;
@@ -25,7 +27,7 @@ const NewModal = props => {
       modalTitle = 'Add New Task';
       modalDecription = 'Gimme a task';
       buttonText = 'add';
-      buttonMethod = newTaskHandler;
+      buttonMethod = handleNewTask;
       break;
     case 'edit':
       modalTitle = 'Edit Task';
@@ -38,7 +40,7 @@ const NewModal = props => {
       modalTitle = 'Delete Task';
       modalDecription = 'You wanna kill me ?😨';
       buttonText = 'delete';
-      buttonMethod = buttonMethod = () => deleteTask(taskIndex);
+      buttonMethod = buttonMethod = () => deleteTaskHandler(taskIndex);
       break;
     default:
       throw new Error('Should not reach here');

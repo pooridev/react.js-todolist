@@ -1,14 +1,17 @@
+import { useContext } from 'react';
+import { ModalContext } from '../../../Providers/Modal';
+import { TaskContext } from '../../../Providers/Task';
+
 const Task = props => {
+  const { task, index } = props;
+  const { setTaskindex, completeTaskHandler } = useContext(TaskContext);
   const {
-    task,
-    setTaskindex,
-    setShowDeleteModal,
-    index,
+    showEditModal,
     showDeleteModal,
     setShowEditModal,
-    showEditModal,
-    completeTaskHandler
-  } = props;
+    setShowDeleteModal
+  } = useContext(ModalContext);
+
   return (
     <li
       key={task.id}
@@ -17,7 +20,7 @@ const Task = props => {
         <span
           className='mx-1 delete-task'
           onClick={() => {
-            setTaskindex();
+            setTaskindex(index);
             setShowDeleteModal(!showDeleteModal);
           }}>
           <i className='bx bx-trash-alt'></i>

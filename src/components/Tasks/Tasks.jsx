@@ -1,7 +1,7 @@
 // import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
 
-import NewModal from '../NewModal';
+import TaskModal from '../Modal/TaskModal';
 import './Tasks.css';
 import Task from './Task/Task';
 
@@ -46,7 +46,7 @@ const Tasks = props => {
   };
 
   const editModal = showEditModal && (
-    <NewModal
+    <TaskModal
       modalType='edit'
       show={showEditModal}
       setInputValue={setInputValue}
@@ -58,7 +58,7 @@ const Tasks = props => {
   );
 
   const deleteModal = showDeleteModal && (
-    <NewModal
+    <TaskModal
       modalType='delete'
       show={showDeleteModal}
       onHide={handleCloseDeleteModal}

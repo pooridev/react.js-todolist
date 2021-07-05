@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
-import NewModal from '../components/NewModal';
+import TaskModal from '../components/Modal/TaskModal';
 import { v4 as uuidv4 } from 'uuid';
 import Tasks from '../components/Tasks/Tasks';
 import './App.css';
@@ -44,15 +44,15 @@ const App = () => {
       title: 'Now we have new task 😍'
     });
   };
-  const newTaskModal = showNewTaskModal ? (
-    <NewModal
+  const newTaskModal = showNewTaskModal && (
+    <TaskModal
       modalType='add'
       show={showNewTaskModal}
       onHide={handleCloseNewTaskModal}
       setInputValue={setInputValue}
       newTaskHandler={handleNewTask}
     />
-  ) : null;
+  );
   return (
     <>
       <main className='container pt-5'>
@@ -80,7 +80,6 @@ const App = () => {
         {/*/To Do Body*/}
         {newTaskModal}
       </main>
-      {/* GitHub icon */}
       <a
         href='https://github.com/Pooria-Faramarzian'
         className='git-hub__cta m-4'>

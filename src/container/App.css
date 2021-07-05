@@ -16,6 +16,10 @@ button {
   outline: none !important;
 }
 
+.to-do {
+  margin: 3rem auto;
+}
+
 .to-do__header {
   text-align: center;
   color: #ffffff;

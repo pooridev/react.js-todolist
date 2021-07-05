@@ -20,7 +20,7 @@ const App = () => {
   );
   return (
     <>
-      <main className='container pt-5'>
+      <main className='to-do'>
         {/*To Do Header*/}
         <header className='to-do__header'>
           <h2>To Do List</h2>

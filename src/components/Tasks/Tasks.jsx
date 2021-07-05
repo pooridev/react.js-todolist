@@ -1,9 +1,10 @@
-// import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
 
 import TaskModal from '../Modal/TaskModal';
-import './Tasks.css';
 import Task from './Task/Task';
+import { useContext } from 'react';
+import { ModalContext } from './../../Providers/Modal';
+import './Tasks.css';
 
 const Tasks = props => {
   // props
@@ -13,15 +14,16 @@ const Tasks = props => {
   const [inputValue, setInputValue] = useState('');
   const [taskIndex, setTaskindex] = useState('');
 
-  // edit modal methods
-  const [showEditModal, setShowEditModal] = useState(false);
-  const handleCloseEditModal = () => setShowEditModal(false);
-
-  // delete modal methods
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const handleCloseDeleteModal = () => setShowDeleteModal(false);
-
+  const {
+    handleCloseEditModal,
+    handleCloseDeleteModal,
+    setShowEditModal,
+    showEditModal,
+    showDeleteModal,
+    setShowDeleteModal
+  } = useContext(ModalContext);
   // edit task
+
   const editTaskHandler = (index, inputValue) => {
     const allTasks = [...tasks];
     allTasks[index].title = inputValue;

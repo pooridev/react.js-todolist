@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+
 import TaskModal from '../components/Modal/TaskModal';
-import { v4 as uuidv4 } from 'uuid';
 import Tasks from '../components/Tasks/Tasks';
+
+import { v4 as uuidv4 } from 'uuid';
+import { ModalContext } from '../Providers/Modal';
 import './App.css';
+
 const App = () => {
   // states
   const [inputValue, setInputValue] = useState('');
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem('tasks')) || []
   );
-  // delete modal methods
-  const [showNewTaskModal, setshowNewTaskModal] = useState(false);
-  const handleCloseNewTaskModal = () => setshowNewTaskModal(false);
-
+  // Modal context data
+  const { handleCloseNewTaskModal, showNewTaskModal, setshowNewTaskModal } = useContext(ModalContext);
   // new task handler
   const handleNewTask = () => {
     const newTask = {

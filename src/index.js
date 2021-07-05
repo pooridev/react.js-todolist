@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './container/App.jsx';
+import ModalProvider from './Providers/Modal.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <ModalProvider>
+    <App />
+  </ModalProvider>,
+  document.getElementById('root')
+);

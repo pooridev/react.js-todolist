@@ -41,6 +41,22 @@ const TaskProvider = ({ children }) => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     setInputValue('');
     handleCloseNewTaskModal();
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Now we have a new task 😍'
+    });
   };
 
   // edit task handler
@@ -49,15 +65,50 @@ const TaskProvider = ({ children }) => {
     allTasks[index].title = inputValue;
     localStorage.setItem('tasks', JSON.stringify(allTasks));
     handleCloseEditModal();
+    
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+
+    Toast.fire({
+      icon: 'info',
+      title: 'task has edited'
+    });
   };
 
   // delete task handler
   const deleteTaskHandler = index => {
     const allTasks = [...tasks];
+
     allTasks.splice(index, 1);
     setTasks(allTasks);
     localStorage.setItem('tasks', JSON.stringify(allTasks));
     handleCloseDeleteModal();
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: toast => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      }
+    });
+
+    Toast.fire({
+      icon: 'warning',
+      title: 'task has deleted'
+    });
   };
 
   // complete task handler

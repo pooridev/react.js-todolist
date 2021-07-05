@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import NewModal from '../components/NewModal';
 import { v4 as uuidv4 } from 'uuid';
-import Tasks from '../components/Tasks';
+import Tasks from '../components/Tasks/Tasks';
 import './App.css';
 const App = () => {
   // states

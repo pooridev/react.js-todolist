@@ -1,8 +1,9 @@
 // import { Button, Modal } from 'react-bootstrap';
 import React, { useState } from 'react';
 
-import NewModal from './NewModal';
+import NewModal from '../NewModal';
 import './Tasks.css';
+import Task from './Task/Task';
 
 const Tasks = props => {
   // props
@@ -10,7 +11,7 @@ const Tasks = props => {
 
   // states
   const [inputValue, setInputValue] = useState('');
-  const [taskIndex, setTaskindex] = useState('40');
+  const [taskIndex, setTaskindex] = useState('');
 
   // edit modal methods
   const [showEditModal, setShowEditModal] = useState(false);
@@ -44,7 +45,7 @@ const Tasks = props => {
     localStorage.setItem('tasks', JSON.stringify(allTasks));
   };
 
-  const editModal = showEditModal ? (
+  const editModal = showEditModal && (
     <NewModal
       modalType='edit'
       show={showEditModal}
@@ -54,9 +55,9 @@ const Tasks = props => {
       editTaskHandler={editTaskHandler}
       taskIndex={taskIndex}
     />
-  ) : null;
+  );
 
-  const deleteModal = showDeleteModal ? (
+  const deleteModal = showDeleteModal && (
     <NewModal
       modalType='delete'
       show={showDeleteModal}
@@ -64,43 +65,21 @@ const Tasks = props => {
       deleteTask={deleteTask}
       taskIndex={taskIndex}
     />
-  ) : null;
+  );
 
   return (
     <>
       <ul className='list'>
         {tasks.map((task, index) => (
-          <li
-            key={task.id}
-            className='d-flex justify-content-between align-items-end'>
-            <div>
-              {/* delete task button */}
-              <span
-                className='mx-1 delete-task'
-                onClick={() => {
-                  setTaskindex(index);
-                  setShowDeleteModal(!showDeleteModal);
-                }}>
-                <i className='bx bx-trash-alt'></i>
-              </span>
-              {/* end delete task button */}
-              {/* edit task button */}
-              <span
-                className='mx-1 edit-task'
-                onClick={() => {
-                  setTaskindex(index);
-                  setShowEditModal(!showEditModal);
-                }}>
-                <i className='bx bxs-edit'></i>
-              </span>
-              {/* end edit task button */}
-            </div>
-            <span
-              className={`${task.isDone && 'completed'} task`}
-              onClick={e => completeTaskHandler(e, index)}>
-              {task.title}
-            </span>
-          </li>
+          <Task
+            task={task}
+            setTaskindex={setTaskindex}
+            showDeleteModal={showDeleteModal}
+            setShowDeleteModal={setShowDeleteModal}
+            index={index}
+            completeTaskHandler={completeTaskHandler}
+            setShowEditModal={setShowEditModal}
+          />
         ))}
       </ul>
       {editModal}

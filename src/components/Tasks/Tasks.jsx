@@ -3,8 +3,8 @@ import React from 'react';
 import TaskModal from '../Modal/TaskModal';
 import Task from './Task/Task';
 import { useContext } from 'react';
-import { ModalContext } from './../../Providers/Modal';
-import { TaskContext } from '../../Providers/Task';
+import { ModalContext } from '../../providers/Modal';
+import { TaskContext } from '../../providers/Task';
 
 import './Tasks.css';
 

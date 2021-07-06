@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { TaskContext } from '../../Providers/Task';
+import { TaskContext } from '../../providers/Task';
 
-const NewModal = props => {
+const TaskModal = props => {
   // props
   const { modalType, onHide, show } = props;
 
@@ -90,4 +90,4 @@ const NewModal = props => {
     </Modal>
   );
 };
-export default NewModal;
+export default TaskModal;

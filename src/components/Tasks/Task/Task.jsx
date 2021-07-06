@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ModalContext } from '../../../Providers/Modal';
-import { TaskContext } from '../../../Providers/Task';
+import { ModalContext } from '../../../providers/Modal';
+import { TaskContext } from '../../../providers/Task';
 
 const Task = props => {
   const { task, index } = props;
@@ -13,9 +13,7 @@ const Task = props => {
   } = useContext(ModalContext);
 
   return (
-    <li
-      key={task.id}
-      className='d-flex justify-content-between align-items-end'>
+    <li className='d-flex justify-content-between align-items-end'>
       <div>
         <span
           className='mx-1 delete-task'

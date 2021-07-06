@@ -6,7 +6,7 @@ import { ModalContext } from './Modal';
 export const TaskContext = createContext({
   inputValue: '',
   setInputValue: () => {},
-  tasks: null,
+  tasks: [],
   taskIndex: null,
   setTaskindex: () => {},
   handleNewTask: () => {},

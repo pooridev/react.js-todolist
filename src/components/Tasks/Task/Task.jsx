@@ -5,12 +5,8 @@ import { TaskContext } from '../../../providers/Task';
 const Task = props => {
   const { task, index } = props;
   const { setTaskindex, completeTaskHandler } = useContext(TaskContext);
-  const {
-    showEditModal,
-    showDeleteModal,
-    setShowEditModal,
-    setShowDeleteModal
-  } = useContext(ModalContext);
+  const { handleOpenEditModal, handleOpenDeleteModal } =
+    useContext(ModalContext);
 
   return (
     <li className='d-flex justify-content-between align-items-end'>
@@ -19,7 +15,7 @@ const Task = props => {
           className='mx-1 delete-task'
           onClick={() => {
             setTaskindex(index);
-            setShowDeleteModal(!showDeleteModal);
+            handleOpenDeleteModal();
           }}>
           <i className='bx bx-trash-alt'></i>
         </span>
@@ -27,7 +23,7 @@ const Task = props => {
           className='mx-1 edit-task'
           onClick={() => {
             setTaskindex(index);
-            setShowEditModal(!showEditModal);
+            handleOpenEditModal();
           }}>
           <i className='bx bxs-edit'></i>
         </span>

@@ -5,7 +5,6 @@ import Task from './Task/Task';
 import { useContext } from 'react';
 import { ModalContext } from '../../providers/Modal';
 import { TaskContext } from '../../providers/Task';
-
 import './Tasks.css';
 
 const Tasks = () => {
@@ -21,7 +20,7 @@ const Tasks = () => {
     <TaskModal
       modalType='edit'
       onHide={handleCloseEditModal}
-      show={showEditModal}
+      onShow={showEditModal}
     />
   );
 
@@ -29,7 +28,7 @@ const Tasks = () => {
     <TaskModal
       modalType='delete'
       onHide={handleCloseDeleteModal}
-      show={showDeleteModal}
+      onShow={showDeleteModal}
     />
   );
 

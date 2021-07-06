@@ -2,41 +2,44 @@ import { createContext, useState } from 'react';
 
 export const ModalContext = createContext({
   showNewTaskModal: false,
-  setshowNewTaskModal: () => {},
   handleCloseNewTaskModal: () => {},
+  handleOpenNewTaskModal: () => {},
   showEditModal: false,
-  setShowEditModal: () => {},
   handleCloseEditModal: () => {},
+  handleOpenEditModal: () => {},
   showDeleteModal: false,
-  setShowDeleteModal: () => {},
-  handleCloseDeleteModal: () => {}
+  handleCloseDeleteModal: () => {},
+  handleOpenDeleteModal: () => {}
 });
 
 const ModalProvider = ({ children }) => {
   // new task modal methods
   const [showNewTaskModal, setshowNewTaskModal] = useState(false);
   const handleCloseNewTaskModal = () => setshowNewTaskModal(false);
+  const handleOpenNewTaskModal = () => setshowNewTaskModal(true);
 
   // edit modal methods
   const [showEditModal, setShowEditModal] = useState(false);
   const handleCloseEditModal = () => setShowEditModal(false);
+  const handleOpenEditModal = () => setShowEditModal(true);
 
   // delete modal methods
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const handleCloseDeleteModal = () => setShowDeleteModal(false);
+  const handleOpenDeleteModal = () => setShowDeleteModal(true);
 
   return (
     <ModalContext.Provider
       value={{
         showNewTaskModal,
-        setshowNewTaskModal,
+        handleOpenNewTaskModal,
         handleCloseNewTaskModal,
         showEditModal,
-        setShowEditModal,
+        handleOpenEditModal,
         handleCloseEditModal,
         showDeleteModal,
-        setShowDeleteModal,
-        handleCloseDeleteModal
+        handleCloseDeleteModal,
+        handleOpenDeleteModal
       }}>
       {children}
     </ModalContext.Provider>

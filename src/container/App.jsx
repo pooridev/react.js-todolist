@@ -9,13 +9,13 @@ import './App.css';
 
 const App = () => {
   // Modal context data
-  const { handleCloseNewTaskModal, showNewTaskModal, setshowNewTaskModal } =
+  const { handleCloseNewTaskModal, showNewTaskModal, handleOpenNewTaskModal } =
     useContext(ModalContext);
 
   const newTaskModal = showNewTaskModal && (
     <TaskModal
       modalType='add'
-      show={showNewTaskModal}
+      onShow={showNewTaskModal}
       onHide={handleCloseNewTaskModal}
     />
   );
@@ -27,7 +27,7 @@ const App = () => {
           <Tasks />
         </section>
         <button
-          onClick={() => setshowNewTaskModal(!showNewTaskModal)}
+          onClick={handleOpenNewTaskModal}
           className='newTaskModalTrigger'>
           <i className='bx bx-plus-circle'></i>
         </button>

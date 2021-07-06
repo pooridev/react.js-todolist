@@ -4,7 +4,7 @@ import { TaskContext } from '../../providers/Task';
 
 const TaskModal = props => {
   // props
-  const { modalType, onHide, show } = props;
+  const { modalType, onHide, onShow } = props;
 
   // context
   const {
@@ -71,7 +71,7 @@ const TaskModal = props => {
   }
 
   return (
-    <Modal show={show} animation={true} onHide={onHide}>
+    <Modal show={onShow} animation={true} onHide={onHide}>
       <Modal.Header closeButton>
         <Modal.Title>{modalTitle}</Modal.Title>
       </Modal.Header>

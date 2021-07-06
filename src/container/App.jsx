@@ -1,4 +1,6 @@
 import { useContext } from 'react';
+import GithubCTA from '../components/CTA/GithubCTA';
+import Header from '../components/Header/Header';
 
 import TaskModal from '../components/Modal/TaskModal';
 import Tasks from '../components/Tasks/Tasks';
@@ -20,30 +22,18 @@ const App = () => {
   return (
     <>
       <main className='to-do'>
-        {/*To Do Header*/}
-        <header className='to-do__header'>
-          <h2>To Do List</h2>
-        </header>
-        {/*To Do Body*/}
+        <Header />
         <section className='to-do__body'>
-          {/*list*/}
           <Tasks />
         </section>
-        {/*new task button*/}
         <button
           onClick={() => setshowNewTaskModal(!showNewTaskModal)}
           className='newTaskModalTrigger'>
           <i className='bx bx-plus-circle'></i>
         </button>
-        {/*/new task button*/}
-        {/*/To Do Body*/}
         {newTaskModal}
       </main>
-      <a
-        href='https://github.com/Pooria-Faramarzian'
-        className='git-hub__cta m-4'>
-        <i className='bx bxl-github'></i>
-      </a>
+      <GithubCTA />
     </>
   );
 };

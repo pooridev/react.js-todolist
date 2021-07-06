@@ -20,17 +20,6 @@ button {
   margin: 3rem auto;
 }
 
-.to-do__header {
-  text-align: center;
-  color: #ffffff;
-  background-color: #3b9aff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  max-width: 23rem;
-  margin: auto;
-  padding: 0.9rem;
-}
-
 .to-do__body {
   background-color: #ffffff;
   overflow-y: visible;
@@ -90,7 +79,6 @@ li:hover .edit-task,
 li:hover .delete-task {
   opacity: 1;
 }
-
 .newTaskModalTrigger {
   position: relative;
   bottom: 3rem;
@@ -129,30 +117,4 @@ li:hover .delete-task {
   .delete-task {
     opacity: 0;
   }
-}
-
-.git-hub__cta {
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ffffff !important;
-  position: absolute;
-  bottom: 0;
-  cursor: pointer;
-  border-radius: 5px;
-  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s;
-  border: 15px solid white;
-  font-size: 5rem;
-  text-decoration: none !important;
-}
-
-.git-hub__cta:hover {
-  transform: scale(1.1);
-}
-
-.git-hub__cta i {
-  color: #2d2d2d;
 }

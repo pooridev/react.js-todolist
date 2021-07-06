@@ -1,0 +1,10 @@
+.to-do__header {
+  text-align: center;
+  color: #ffffff;
+  background-color: #3b9aff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  max-width: 23rem;
+  margin: auto;
+  padding: 0.9rem;
+}

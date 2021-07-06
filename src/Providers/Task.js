@@ -30,6 +30,8 @@ const TaskProvider = ({ children }) => {
 
   // new task handler
   const handleNewTask = () => {
+    handleCloseNewTaskModal();
+    if (inputValue.trim() === '') return;
     const newTask = {
       title: inputValue,
       id: v4(),
@@ -40,7 +42,7 @@ const TaskProvider = ({ children }) => {
     setTasks(oldTasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     setInputValue('');
-    handleCloseNewTaskModal();
+
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -65,7 +67,7 @@ const TaskProvider = ({ children }) => {
     allTasks[index].title = inputValue;
     localStorage.setItem('tasks', JSON.stringify(allTasks));
     handleCloseEditModal();
-    
+
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -107,7 +109,7 @@ const TaskProvider = ({ children }) => {
 
     Toast.fire({
       icon: 'warning',
-      title: 'task has deleted'
+      title: 'task deleted'
     });
   };
 

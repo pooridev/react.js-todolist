@@ -82,7 +82,7 @@ const TaskProvider = ({ children }) => {
 
     Toast.fire({
       icon: 'info',
-      title: 'task has edited'
+      title: 'task edited'
     });
   };
 

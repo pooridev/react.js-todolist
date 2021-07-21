@@ -20,21 +20,17 @@ const App = () => {
     />
   );
   return (
-    <>
-      <main className='to-do'>
-        <Header />
-        <section className='to-do__body'>
-          <Tasks />
-        </section>
-        <button
-          onClick={handleOpenNewTaskModal}
-          className='newTaskModalTrigger'>
-          <i className='bx bx-plus-circle'></i>
-        </button>
-        {newTaskModal}
-      </main>
+    <main className='to-do'>
+      <Header />
+      <section className='to-do__body'>
+        <Tasks />
+      </section>
+      <button onClick={handleOpenNewTaskModal} className='newTaskModalTrigger'>
+        <i className='bx bx-plus-circle'></i>
+      </button>
+      {newTaskModal}
       <GithubCTA />
-    </>
+    </main>
   );
 };
 

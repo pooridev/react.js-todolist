@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './container/App.jsx';
-import ModalProvider from './providers/Modal.js';
-import TaskProvider from './providers/Task.js';
+import ModalProvider from './Providers/Modal';
+import TaskProvider from './Providers/Task';
 
 ReactDOM.render(
   <ModalProvider>

@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 
 import TaskModal from '../components/Modal/TaskModal';
 import Tasks from '../components/Tasks/Tasks';
-import { ModalContext } from '../providers/Modal';
+import { ModalContext } from '../Providers/Modal';
 import './App.css';
 
 const App = () => {

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { TaskContext } from '../../providers/Task';
+import { TaskContext } from '../../Providers/Task';
 
 const TaskModal = props => {
   // props

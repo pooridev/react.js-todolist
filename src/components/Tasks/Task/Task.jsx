@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { ModalContext } from '../../../providers/Modal';
-import { TaskContext } from '../../../providers/Task';
+import { ModalContext } from '../../../Providers/Modal';
+import { TaskContext } from '../../../Providers/Task';
 
 const Task = props => {
   const { task, index } = props;
